@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — "Signal" direction
+   Change a colour here and it changes everywhere on the site.
+   ============================================================ */
+@theme {
+  --color-bg: #0A0B0D;
+  --color-surface: #14161A;
+  --color-line: #24272E;
+  --color-ink: #F2F0EB;
+  --color-muted: #9AA0A8;
+  --color-signal: #3DDC84;
+  --color-warn: #FF6B4A;
+  --color-paper: #dadada;
+  --color-accent: #7C9CFF;
+
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-pixel: "Pixelify Sans", "JetBrains Mono", ui-monospace, monospace;
+  --color-glow: rgba(61, 220, 132, 0.35);
+}
+
+.font-pixel { font-family: var(--font-pixel); }
+
+/* Glass surface used by Quantum cards and pills */
+.glass { background: rgba(17, 16, 15, 0.35); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+html { scroll-behavior: smooth; background: var(--color-bg); }
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--color-signal); color: var(--color-bg); }
+
+/* Visible keyboard focus everywhere (accessibility) */
+:focus-visible { outline: 2px solid var(--color-signal); outline-offset: 3px; border-radius: 6px; }
+
+/* Infinite text strip for the tools section */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { animation: marquee 40s linear infinite; }
+
+/* Load-in animations (Quantum hero): start hidden, play once */
+@keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes fade-down { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
+@keyframes fade-scale { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes bar-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.anim-up { opacity: 0; animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.anim-down { opacity: 0; animation: fade-down 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.anim-scale { opacity: 0; animation: fade-scale 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.anim-bar { transform: scaleX(0); animation: bar-grow 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* Respect people who turn animations off on their device */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee { animation: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
