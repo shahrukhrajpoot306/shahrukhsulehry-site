@@ -54,7 +54,7 @@ function Footer() {
           <li><a href={site.contact.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-ink">LinkedIn</a></li>
           <li><a href={site.contact.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-ink">Instagram</a></li>
         </ul>
-        <p>© {new Date().getFullYear()} {site.name}</p>
+        <p suppressHydrationWarning>© {new Date().getFullYear()} {site.name}</p>
       </Container>
     </footer>
   )

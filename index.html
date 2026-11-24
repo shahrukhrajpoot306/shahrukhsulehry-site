@@ -29,11 +29,10 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Fonts (Google Fonts, free) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="preload" as="image" href="/images/shahrukh.webp" fetchpriority="high" />
+    <!-- Fonts are hosted on this site (public/fonts); the two main ones load first -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-wght-normal.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-tight-latin-wght-normal.woff2" crossorigin />
+    <link rel="preload" as="image" href="/images/shahrukh.webp" fetchpriority="high" media="(min-width: 1024px)" />
 
     <!-- Structured data: tells Google who you are and what you offer -->
     <script type="application/ld+json">

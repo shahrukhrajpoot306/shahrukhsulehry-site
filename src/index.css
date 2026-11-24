@@ -22,6 +22,11 @@
   --color-glow: rgba(61, 220, 132, 0.35);
 }
 
+/* Fonts are hosted on this site (public/fonts), so the first screen does not wait for Google Fonts. */
+@font-face { font-family: "Inter"; src: url("/fonts/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("/fonts/inter-tight-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); font-weight: 100 800; font-style: normal; font-display: swap; }
+
 .font-pixel { font-family: var(--font-pixel); }
 
 /* Glass surface used by Quantum cards and pills */

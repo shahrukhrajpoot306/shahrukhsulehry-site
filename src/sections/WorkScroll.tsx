@@ -183,7 +183,7 @@ export function Work() {
           <div className="mt-8 flex items-center gap-4">
             <div className="flex flex-1 gap-2" role="tablist" aria-label="Choose a project">
               {shown.map((c, i) => (
-                <button key={c.slug} type="button" role="tab" aria-selected={i === index} aria-label={`Project ${i + 1}: ${c.client}`}
+                <button key={c.slug} type="button" role="tab" aria-selected={i === index} aria-label={`${String(i + 1).padStart(2, '0')} ${c.client}`}
                   onClick={() => go(i)} className="group flex-1 py-3 text-left">
                   <span className={`font-mono text-xs ${i === index ? 'text-ink' : 'text-muted group-hover:text-ink'}`}>{String(i + 1).padStart(2, '0')}</span>
                   <span className="mt-2 block h-0.5 overflow-hidden rounded-full bg-line">

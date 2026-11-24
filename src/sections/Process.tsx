@@ -13,14 +13,12 @@ export function Steps() {
       <Heading>{s.heading}</Heading>
       <ol className="mt-10 grid gap-4 md:grid-cols-3">
         {s.items.map((it, i) => (
-          <Reveal key={it.title} delay={i * 0.08}>
-            <li className="relative h-full rounded-2xl border border-line p-6">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-signal font-mono text-sm font-bold text-bg">
-                {i + 1}
-              </span>
-              <h3 className="mt-5 font-display text-xl font-semibold">{it.title}</h3>
-              <p className="mt-2 text-muted">{it.body}</p>
-            </li>
+          <Reveal as="li" key={it.title} delay={i * 0.08} className="relative h-full rounded-2xl border border-line p-6">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-signal font-mono text-sm font-bold text-bg">
+              {i + 1}
+            </span>
+            <h3 className="mt-5 font-display text-xl font-semibold">{it.title}</h3>
+            <p className="mt-2 text-muted">{it.body}</p>
           </Reveal>
         ))}
       </ol>

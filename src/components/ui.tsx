@@ -39,9 +39,11 @@ export function Heading({ children, className = '' }: { children: ReactNode; cla
 }
 
 /** Fades content up once when it scrolls into view. Turns off for reduced-motion users. */
-export function Reveal({ children, delay = 0, className = '' }: { children: ReactNode; delay?: number; className?: string }) {
+export function Reveal({ children, delay = 0, className = '', as = 'div' }: { children: ReactNode; delay?: number; className?: string; as?: 'div' | 'li' }) {
+  // as="li" keeps lists valid when each list item fades in on its own
+  const Tag = as === 'li' ? motion.li : motion.div
   return (
-    <motion.div
+    <Tag
       className={className}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +51,7 @@ export function Reveal({ children, delay = 0, className = '' }: { children: Reac
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </motion.div>
+    </Tag>
   )
 }
 

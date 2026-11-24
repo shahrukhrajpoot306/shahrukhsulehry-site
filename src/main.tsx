@@ -1,13 +1,17 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { design } from './lib/design'
 
 document.documentElement.dataset.design = design
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+// Live pages arrive already drawn (see scripts/postbuild.mjs), so React just attaches to them.
+if (root.hasChildNodes()) hydrateRoot(root, app)
+else createRoot(root).render(app)

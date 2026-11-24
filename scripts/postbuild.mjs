@@ -4,8 +4,15 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 
 const html = readFileSync('dist/index.html', 'utf8')
-const page = (title, desc, path) =>
+
+// Pre-draw each page's HTML at build time, so text appears before JavaScript loads.
+// React 19 puts image preload tags at the start; drop them (the head already preloads the photo).
+const { render } = await import('../dist-ssr/entry-server.js')
+const drawn = (path) => render(path).replace(/^(<link [^>]*>)+/, '')
+
+const page = (title, desc, path, body = drawn(path)) =>
   html
+    .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`)
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
     .replaceAll(/(name="description" content=")[^"]*/g, `$1${desc}`)
     .replaceAll(/(property="og:description" content=")[^"]*/g, `$1${desc}`)

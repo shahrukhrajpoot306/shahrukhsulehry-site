@@ -12,6 +12,9 @@ export function Statement() {
     <section className="py-20 sm:py-32">
       <Container>
         <div className="max-w-4xl">
+          {/* Screen readers get the plain sentence; the fading words are visual only */}
+          <p className="sr-only">{site.statement.text}</p>
+          <div aria-hidden="true">
           <ScrollReveal
             baseOpacity={0.12}
             enableBlur
@@ -22,6 +25,7 @@ export function Statement() {
           >
             {site.statement.text}
           </ScrollReveal>
+          </div>
         </div>
       </Container>
     </section>
