@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 import { site } from '../content/site'
 import { bookUrl, hasBooking } from '../lib/links'
 import BlurText from '../components/reactbits/BlurText'
@@ -20,6 +21,49 @@ function useDesktopMotion() {
     setOk(big && !calm)
   }, [])
   return ok
+}
+
+/** What I do: clickable pills; the chosen one opens a short explanation underneath. */
+function HeroServices() {
+  const areas = site.expertise.areas
+  const [open, setOpen] = useState<number | null>(null)
+  const a = open === null ? null : areas[open]
+  return (
+    <div className="mt-6">
+      <div role="tablist" aria-label="What I do" className="flex flex-wrap gap-1.5">
+        {areas.map((it, i) => {
+          const on = i === open || (open === null && i === 0)
+          return (
+            <button key={it.label} type="button" role="tab" aria-selected={i === open} aria-expanded={i === open}
+              onClick={() => setOpen(i === open ? null : i)}
+              className={`relative flex h-9 items-center gap-1.5 rounded-full py-1 pr-3.5 pl-1 text-sm font-semibold transition-colors ${on ? 'text-bg' : 'border border-line bg-surface/80 text-ink hover:border-signal/60'}`}>
+              {on && <motion.span layoutId="hero-pill" className="absolute inset-0 rounded-full bg-signal" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />}
+              <span className={`relative flex h-7 w-7 items-center justify-center rounded-full ${on ? 'bg-bg text-signal' : 'bg-signal/10 text-signal'}`}>
+                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={ICONS[it.icon]} /></svg>
+              </span>
+              <span className="relative whitespace-nowrap">{it.label}</span>
+              <span className={`relative text-xs transition-transform ${i === open ? 'rotate-45' : ''}`} aria-hidden="true">+</span>
+            </button>
+          )
+        })}
+      </div>
+      <AnimatePresence initial={false} mode="wait">
+        {a && (
+          <motion.div key={a.label} initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} className="overflow-hidden">
+            <div className="mt-3 max-w-xl rounded-2xl border border-line bg-surface/90 p-5 backdrop-blur">
+              <p className="leading-relaxed text-ink/90">{a.body}</p>
+              <ul className="mt-3 space-y-1.5">
+                {a.points.map((p) => (
+                  <li key={p} className="flex gap-2 text-sm text-muted"><span className="text-signal" aria-hidden="true">✓</span>{p}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
 }
 
 export default function Hero() {
@@ -73,18 +117,7 @@ export default function Hero() {
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{h.sub}</p>
 
-            {/* What I do */}
-            <ul aria-label="What I do" className="mt-6 flex flex-wrap gap-1.5">
-              {site.expertise.areas.map((a, i) => (
-                <li key={a.label} title={a.body}
-                  className={`flex h-9 items-center gap-1.5 rounded-full py-1 pr-3.5 pl-1 text-sm font-semibold ${i === 0 ? 'bg-signal text-bg' : 'border border-line bg-surface/80 text-ink'}`}>
-                  <span className={`flex h-7 w-7 items-center justify-center rounded-full ${i === 0 ? 'bg-bg text-signal' : 'bg-signal/10 text-signal'}`}>
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={ICONS[a.icon]} /></svg>
-                  </span>
-                  {a.label}
-                </li>
-              ))}
-            </ul>
+            <HeroServices />
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <StarWhatsApp location="hero" />
