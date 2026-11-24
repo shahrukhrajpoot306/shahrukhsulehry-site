@@ -1,7 +1,7 @@
 import { site } from '../content/site'
 import { useSeo } from '../lib/useSeo'
 import Hero from '../sections/Hero'
-import { Expertise, Problem, Sectors, Services, Toolkit } from '../sections/Proof'
+import { Problem, Sectors, Services, Toolkit } from '../sections/Proof'
 import { Work } from '../sections/WorkScroll'
 import { Deal, Steps, Tools } from '../sections/Process'
 import { Experience, Faq, Testimonials } from '../sections/About'
@@ -19,7 +19,6 @@ export default function Home() {
       <Hero />
       <Suspense fallback={<div className="h-64" />}><Statement /></Suspense>
       <Problem />
-      <Expertise />
       <Services />
       <Toolkit />
       <Work />

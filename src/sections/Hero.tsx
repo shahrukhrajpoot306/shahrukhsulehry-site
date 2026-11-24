@@ -4,6 +4,7 @@ import { bookUrl, hasBooking } from '../lib/links'
 import BlurText from '../components/reactbits/BlurText'
 import { Link } from 'react-router-dom'
 import { track } from '../lib/track'
+import { ICONS } from './Proof'
 import { Container, CtaLink } from '../components/ui'
 import StarWhatsApp from '../components/StarWhatsApp'
 
@@ -71,6 +72,19 @@ export default function Hero() {
             </div>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{h.sub}</p>
+
+            {/* What I do */}
+            <ul aria-label="What I do" className="mt-6 flex flex-wrap gap-1.5">
+              {site.expertise.areas.map((a, i) => (
+                <li key={a.label} title={a.body}
+                  className={`flex h-9 items-center gap-1.5 rounded-full py-1 pr-3.5 pl-1 text-sm font-semibold ${i === 0 ? 'bg-signal text-bg' : 'border border-line bg-surface/80 text-ink'}`}>
+                  <span className={`flex h-7 w-7 items-center justify-center rounded-full ${i === 0 ? 'bg-bg text-signal' : 'bg-signal/10 text-signal'}`}>
+                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={ICONS[a.icon]} /></svg>
+                  </span>
+                  {a.label}
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <StarWhatsApp location="hero" />

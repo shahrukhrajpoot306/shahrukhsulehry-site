@@ -104,11 +104,8 @@ export const site = {
     closing: "Most of the time it's not your market. It's how the ads are set up. That's the first thing I fix.",
   },
 
-  // ---------- 3b. What I do (service areas as clickable pills) ----------
+  // ---------- What I do: pills shown in the hero under the introduction ----------
   expertise: {
-    label: '02 / What I do',
-    heading: 'What I do',
-    intro: 'Ads are the core. Around them, the pieces that make the ads pay off.',
     // Clickable pills. icon = one of: trend, monitor, sparkles, video, palette, search, target
     areas: [
       { label: 'Performance Marketing', icon: 'trend', body: 'Google, Meta, LinkedIn and TikTok ads that bring serious leads and sales, measured from click to customer.', points: ['Lead generation and sales campaigns', 'Budgets from local tests to AED 100K+ a month', 'Weekly optimisation and testing'] },
@@ -121,7 +118,7 @@ export const site = {
 
   // ---------- 4. Services: three ways to work together ----------
   services: {
-    label: '03 / Services',
+    label: '02 / Services',
     heading: 'Three ways to work with me',
     intro: 'Start with an audit, get a full setup, or hand me the monthly running. Prices depend on your platforms and budget, and you get a clear quote before anything starts.',
     packages: [
@@ -167,7 +164,7 @@ export const site = {
 
   // ---------- 4b. How I work (plain words, with the technical name underneath) ----------
   toolkit: {
-    label: '04 / How I work',
+    label: '03 / How I work',
     heading: 'How I work',
     intro: 'The same five steps on every account. A software engineering degree means I build the tracking myself, not just the ads.',
     items: [
@@ -192,7 +189,7 @@ export const site = {
   // To add a new case study: copy one block in `caseStudies` at the bottom of
   // this file, change the text, and it appears here automatically.
   work: {
-    label: '05 / Work',
+    label: '04 / Work',
     heading: 'Selected work',
     intro: 'Real projects, explained step by step. Agency client names are kept private.',
     cta: 'Read the case study',
@@ -202,7 +199,7 @@ export const site = {
 
   // ---------- 6. Who I help ----------
   sectors: {
-    label: '08 / Who I help',
+    label: '07 / Who I help',
     heading: 'Businesses I work with',
     intro: 'Businesses that need leads or sales they can measure. Each card links to real work in that sector.',
     // link = a case study slug, or a page path like '/real-estate'. Leave '' for no link.
@@ -219,7 +216,7 @@ export const site = {
 
   // ---------- 7. How we start ----------
   steps: {
-    label: '09 / How we start',
+    label: '08 / How we start',
     heading: 'Three simple steps',
     items: [
       { title: 'Message me on WhatsApp.', body: "Tell me what you sell and what's not working. It takes a minute." },
@@ -231,7 +228,7 @@ export const site = {
 
   // ---------- 8. My promise ----------
   deal: {
-    label: '10 / My promise',
+    label: '09 / My promise',
     heading: 'My promise to you',
     items: [
       { title: 'Your accounts stay yours.', body: 'Every ad account and report is in your name. Always.' },
@@ -242,7 +239,7 @@ export const site = {
 
   // ---------- 9. Tools ----------
   tools: {
-    label: '11 / Tools I use',
+    label: '10 / Tools I use',
     heading: 'Tools I use',
     intro: 'The platforms I run ads on, the tracking that measures every lead, and the follow-up that turns clicks into customers.',
     groups: [
@@ -255,7 +252,7 @@ export const site = {
 
   // ---------- 10. Experience (matches the CV exactly) ----------
   experience: {
-    label: '06 / Experience',
+    label: '05 / Experience',
     heading: 'Experience',
     roles: [
       { company: 'A Bunch of Creatives FZE', place: 'Dubai', title: 'Senior Performance Marketing Specialist', dates: 'Jun 2026 – Present', highlight: 'Run paid campaigns for several business units and clients (real estate, a creative studio, a global event and a consumer brand), with tracking set up across every account.' },
@@ -280,7 +277,7 @@ export const site = {
   // ---------- 11. Testimonials ----------
   // Text kept from the current site, typos fixed.
   testimonials: {
-    label: '07 / Clients',
+    label: '06 / Clients',
     heading: 'What clients say',
     // sector = small tag on each card. caseStudy = a case study slug to link to (leave '' if none matches).
     items: [
@@ -296,7 +293,7 @@ export const site = {
 
   // ---------- 12. FAQ ----------
   faq: {
-    label: '12 / FAQ',
+    label: '11 / FAQ',
     heading: 'Questions people ask first',
     items: [
       { q: 'Do you take on projects?', a: 'Yes, I take on selected freelance and consulting projects. Message me with what you have in mind.' },
@@ -310,7 +307,7 @@ export const site = {
 
   // ---------- 13. Final CTA + contact ----------
   contactSection: {
-    label: '13 / Contact',
+    label: '12 / Contact',
     heading: "Let's talk about your business.",
     body: 'Pick the option that fits. I reply within one working day.',
     formHeading: 'Or send a message',
