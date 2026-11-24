@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { site } from '../content/site'
 import { waLink, whatsappUrl } from '../lib/links'
@@ -30,6 +32,58 @@ export function Problem() {
   )
 }
 
+/* Service-area pills: click one to see what it covers */
+const ICONS: Record<string, string> = {
+  trend: 'M3 17l6-6 4 4 8-8M14 7h7v7',
+  monitor: 'M3 4h18v12H3zM8 20h8M12 16v4',
+  sparkles: 'M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z',
+  video: 'M3 6h12v12H3zM15 10l6-3v10l-6-3',
+  palette: 'M12 3a9 9 0 100 18c1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 2-1.5H17a4 4 0 004-4c0-4.7-4-8.5-9-8.5zM7.5 11.5h.01M10 7.5h.01M15 7.5h.01',
+  search: 'M11 4a7 7 0 110 14 7 7 0 010-14zM21 21l-4.5-4.5',
+  target: 'M12 3a9 9 0 110 18 9 9 0 010-18zM12 7a5 5 0 110 10 5 5 0 010-10zM12 11a1 1 0 110 2 1 1 0 010-2z',
+}
+
+function ServiceAreas() {
+  const areas = site.services.areas
+  const [active, setActive] = useState(0)
+  const a = areas[active]
+  return (
+    <div className="mt-10">
+      <div role="tablist" aria-label="Service areas" className="flex flex-wrap gap-3">
+        {areas.map((it, i) => {
+          const on = i === active
+          return (
+            <button key={it.label} type="button" role="tab" aria-selected={on} onClick={() => setActive(i)}
+              className={`relative flex min-h-12 items-center gap-3 rounded-full py-1.5 pr-5 pl-1.5 text-base font-semibold transition-colors ${on ? 'text-bg' : 'border border-line bg-surface text-ink hover:border-signal/50'}`}>
+              {on && <motion.span layoutId="area-pill" className="absolute inset-0 rounded-full bg-signal" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />}
+              <span className={`relative flex h-9 w-9 items-center justify-center rounded-full ${on ? 'bg-bg text-signal' : 'bg-signal/10 text-signal'}`}>
+                <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={ICONS[it.icon]} /></svg>
+              </span>
+              <span className="relative whitespace-nowrap">{it.label}</span>
+            </button>
+          )
+        })}
+      </div>
+      <div className="mt-5 min-h-[9.5rem] rounded-2xl border border-line bg-surface p-6 sm:p-8">
+        <AnimatePresence mode="wait">
+          <motion.div key={a.label} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.25 }}
+            className="grid gap-5 md:grid-cols-[1.2fr_1fr]">
+            <div>
+              <h3 className="font-display text-xl font-semibold">{a.label}</h3>
+              <p className="mt-2 leading-relaxed text-muted">{a.body}</p>
+            </div>
+            <ul className="space-y-2">
+              {a.points.map((p) => (
+                <li key={p} className="flex gap-2 text-ink/90"><span className="text-signal" aria-hidden="true">✓</span>{p}</li>
+              ))}
+            </ul>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  )
+}
+
 /* 02 — Services: three packages (React Bits: SpotlightCard) */
 export function Services() {
   const s = site.services
@@ -38,6 +92,7 @@ export function Services() {
       <Label text={s.label} />
       <Heading>{s.heading}</Heading>
       <p className="mt-5 max-w-2xl text-lg text-muted">{s.intro}</p>
+      <ServiceAreas />
       <div className="mt-10 grid gap-4 lg:grid-cols-3">
         {s.packages.map((pk, i) => (
           <Reveal key={pk.title} delay={i * 0.06} className="h-full">

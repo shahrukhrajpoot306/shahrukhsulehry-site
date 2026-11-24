@@ -109,6 +109,17 @@ export const site = {
     label: '02 / Services',
     heading: 'Three ways to work with me',
     intro: 'Start with an audit, get a full setup, or hand me the monthly running. Prices depend on your platforms and budget, and you get a clear quote before anything starts.',
+    // Service areas shown as clickable pills above the packages. icon = one of:
+    // trend, monitor, sparkles, video, palette, search, target
+    areas: [
+      { label: 'Performance Marketing', icon: 'trend', body: 'Google, Meta, LinkedIn and TikTok ads that bring serious leads and sales, measured from click to customer.', points: ['Lead generation and sales campaigns', 'Budgets from local tests to AED 100K+ a month', 'Weekly optimisation and testing'] },
+      { label: 'Websites', icon: 'monitor', body: 'Landing pages and websites built to turn visitors into calls, WhatsApp messages and enquiries.', points: ['WordPress and Shopify', 'Fast, clear landing pages for each campaign', 'Forms and tracking set up properly'] },
+      { label: 'CRM & AI', icon: 'sparkles', body: 'Every new lead goes into your CRM and gets an automatic WhatsApp or email reply, so nobody waits.', points: ['Zapier connections between ads, forms and CRM', 'WhatsApp and email nurturing', 'AI tools to qualify and sort leads faster'] },
+      { label: 'Content & 3D', icon: 'video', body: 'Ad creatives, short videos and 3D visuals planned around what makes people click, produced with trusted creative partners.', points: ['Ad concepts and scripts', 'Short videos for Meta and TikTok', '3D visuals for property and products'] },
+      { label: 'Branding', icon: 'palette', body: 'A clear look and message so your ads, website and social pages feel like one brand, designed with partners.', points: ['Logo, colours and fonts', 'Simple brand guide', 'Ad and social templates'] },
+      { label: 'SEO', icon: 'search', body: 'Get found on Google without paying for every click.', points: ['Keyword research and on-page fixes', 'Technical checks and site speed', 'Grew website traffic 38% in 4 months at Qemat'] },
+      { label: 'Strategy', icon: 'target', body: 'A plan before any spend: who to target, where to advertise, how to split the budget and what to measure.', points: ['Market and competitor review', 'Budget and channel plan', 'Reports that owners and directors read'] },
+    ],
     packages: [
       {
         title: 'Ads & tracking audit',
