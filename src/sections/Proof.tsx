@@ -43,8 +43,21 @@ const ICONS: Record<string, string> = {
   target: 'M12 3a9 9 0 110 18 9 9 0 010-18zM12 7a5 5 0 110 10 5 5 0 010-10zM12 11a1 1 0 110 2 1 1 0 010-2z',
 }
 
+/* 02 — What I do: service areas */
+export function Expertise() {
+  const e = site.expertise
+  return (
+    <Section id="expertise">
+      <Label text={e.label} />
+      <Heading>{e.heading}</Heading>
+      <p className="mt-5 max-w-2xl text-lg text-muted">{e.intro}</p>
+      <ServiceAreas />
+    </Section>
+  )
+}
+
 function ServiceAreas() {
-  const areas = site.services.areas
+  const areas = site.expertise.areas
   const [active, setActive] = useState(0)
   const a = areas[active]
   return (
@@ -92,7 +105,6 @@ export function Services() {
       <Label text={s.label} />
       <Heading>{s.heading}</Heading>
       <p className="mt-5 max-w-2xl text-lg text-muted">{s.intro}</p>
-      <ServiceAreas />
       <div className="mt-10 grid gap-4 lg:grid-cols-3">
         {s.packages.map((pk, i) => (
           <Reveal key={pk.title} delay={i * 0.06} className="h-full">
