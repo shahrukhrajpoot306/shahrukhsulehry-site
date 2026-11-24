@@ -465,12 +465,12 @@ export const caseStudies: CaseStudy[] = [
     industry: 'Home services',
     sector: 'Services',
     platforms: 'Google Ads, GA4, Google Tag Manager',
-    year: '2026',
+    year: '2023–2024',
     highlight: '19% cheaper leads and 40% more quality leads within about a month',
     seoTitle: 'Home Maintenance Google Ads Case Study | ShahRukh Sulehry',
     seoDescription:
       'How fixing keywords, tracking and the website made leads 19% cheaper and 40% better for a home maintenance company within about a month.',
-    meta: 'Home maintenance company · 2026 · Freelance',
+    meta: 'Home maintenance company · 2023–2024 · Freelance',
     results: [
       { metric: 'Cost per lead', figure: '19% cheaper' },
       { metric: 'Quality leads', figure: '40% more' },
