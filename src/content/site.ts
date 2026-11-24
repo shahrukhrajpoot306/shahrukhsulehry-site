@@ -39,8 +39,8 @@ export const site = {
 
   // ---------- Contact form (Web3Forms) ----------
   form: {
-    // [NEEDS: Web3Forms access key] (free at web3forms.com, sent to your Gmail)
-    web3formsKey: '',
+    // Web3Forms access key (free at web3forms.com). Messages go to the Gmail on that Web3Forms account.
+    web3formsKey: '4b9f3a70-956a-4301-91e2-4d368954e1a2',
     successMessage: "Thanks, I've got it. I'll reply within one working day.",
   },
 
