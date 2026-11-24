@@ -31,7 +31,7 @@ export const site = {
     phoneDisplay: '+971 50 763 0090',
     phoneLink: '+971507630090',
     email: 'hello@shahrukhsulehry.com',
-    bookingUrl: '', // [NEEDS: Cal.com link]. While empty, "Book a call" opens WhatsApp instead.
+    bookingUrl: 'https://cal.com/shahrukh-sulehry-wcaryh/15min', // Cal.com. Leave '' to hide the Book buttons.
     linkedin: 'https://www.linkedin.com/in/shahrukh-sulehry-2900b232b/',
     instagram: 'https://www.instagram.com/i_shahrukhsulehry',
     cvUrl: '/ShahRukh-Sulehry-CV.pdf', // the PDF in the /public folder
@@ -72,7 +72,7 @@ export const site = {
     headline: 'Ads that bring qualified leads and sales.',
     sub: "I'm ShahRukh, a performance marketer in Dubai with 5+ years of running ads on Google, Meta, LinkedIn and TikTok, on budgets up to AED 100K a month. I set up the tracking that proves which ads brought each lead and sale.",
     ctaWhatsapp: 'WhatsApp me',
-    ctaBook: 'Book a 20-min call',
+    ctaBook: 'Book a 15-min call',
     ctaCv: 'View my CV',
     photo: '/images/shahrukh.webp',
     photoAlt: 'ShahRukh Sulehry, performance marketing specialist in Dubai',
@@ -130,7 +130,7 @@ export const site = {
           'Where money is being wasted, in plain words',
           'A step-by-step plan to fix it, in order of impact',
         ],
-        starts: 'A 20-minute call, then view-only access to your accounts.',
+        starts: 'A 15-minute call, then view-only access to your accounts.',
         ask: "Hi ShahRukh, I'd like an audit of my ads and tracking.",
       },
       {
@@ -220,7 +220,7 @@ export const site = {
     heading: 'Three simple steps',
     items: [
       { title: 'Message me on WhatsApp.', body: "Tell me what you sell and what's not working. It takes a minute." },
-      { title: 'A 20-minute call.', body: 'I ask about your business, your current ads and your goals.' },
+      { title: 'A 15-minute call.', body: 'I ask about your business, your current ads and your goals.' },
       { title: 'A clear plan before you pay.', body: "You see where I'd advertise, how I'd split the budget and what I'd fix first." },
     ],
     cta: 'Start on WhatsApp',
@@ -298,7 +298,7 @@ export const site = {
     items: [
       { q: 'Do you take on projects?', a: 'Yes, I take on selected freelance and consulting projects. Message me with what you have in mind.' },
       { q: 'Do you work with smaller businesses?', a: "Yes, if the budget fits the goal. I'll tell you honestly what makes sense before you spend anything." },
-      { q: 'What does it cost?', a: 'It depends on how many platforms you need and how big your ad budget is. After a 20-minute call you get a clear price before anything starts.' },
+      { q: 'What does it cost?', a: 'It depends on how many platforms you need and how big your ad budget is. After a 15-minute call you get a clear price before anything starts.' },
       { q: 'How much should I spend on ads?', a: "It depends on your business and your area. I've managed budgets from small local campaigns up to AED 100K+ a month, and I'll tell you honestly if your budget is too small for the goal." },
       { q: 'Who owns the ad accounts?', a: 'You do. Everything is set up in your name, and you can remove my access at any time.' },
       { q: 'How soon will I see results?', a: 'Setup takes the first 1–2 weeks. Most accounts need 4–6 weeks of real data before results are steady.' },
